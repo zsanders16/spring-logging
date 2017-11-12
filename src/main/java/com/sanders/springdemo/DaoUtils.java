@@ -21,21 +21,21 @@ public class DaoUtils {
 	public final String cleanupOperation = "TRUNCATE";
 
 	public void printOrganizations(List<Organization> orgs, String operation){
-	    System.out.println("\n********* printing organizations after " + operation + " operation *********");
+	    LOGGER.info("\n********* printing organizations after " + operation + " operation *********");
 	    for (Organization org : orgs) {
-	        System.out.println(org);
+	        LOGGER.info(org.toString());
 	    }
 	}
 	
 	public void printOrganization(Organization org, String operation) {
-		System.out.println("\n********* printing organization after invoking " + operation + " *********\n" + org);
+		LOGGER.info("\n********* printing organization after invoking " + operation + " *********\n" + org);
 	}
 
 	public void printSuccessFailure(String operation, boolean param){
 	    if(param)
-	        System.out.println("\nOperation " + operation + " successful");
+	        LOGGER.info("\nOperation " + operation + " successful");
 	    else
-	        System.out.println("\nOperation " + operation + " failed");
+	        LOGGER.info("\nOperation " + operation + " failed");
 	}
 	
 	public void createSeedData(OrganizationDao dao){
@@ -53,11 +53,11 @@ public class DaoUtils {
 	            createCount += 1;
 	    }
 	             
-	    System.out.println("Created "+ createCount + " organizations");
+	    LOGGER.info("Created "+ createCount + " organizations");
 	}
 	
 	public void printOrganizationCount(List<Organization> orgs, String operation){
-	    System.out.println("\n*********Currently we have " + orgs.size()+ " organizations after " + operation + " operation" + "   *********");
+	    LOGGER.info("\n*********Currently we have " + orgs.size()+ " organizations after " + operation + " operation" + "   *********");
 	     
 	}
 	
